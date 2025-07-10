@@ -5,7 +5,7 @@ import requests
 from dotenv import load_dotenv
 from paperqa import Docs, Settings
 from langchain.document_loaders import PyPDFLoader
-from optimize_arxiv import optimize_query
+from optimize_arxiv import optimize_query, search_arxiv
 import re
 
 load_dotenv()
@@ -57,10 +57,12 @@ def fetch_papers(query: str, max_results: int = 5):
     return list(client.results(search))
 
 
-def download_pdf(arxiv_result):
+def download_pdf(paper_dict):
     """Download a paper PDF to local papers/ directory."""
-    arxiv_id = arxiv_result.get_short_id()
-    pdf_url = arxiv_result.pdf_url
+    # Extract arxiv_id from the URL (e.g., 'http://arxiv.org/abs/1234.5678' -> '1234.5678')
+    arxiv_url = paper_dict["url"]
+    arxiv_id = arxiv_url.split("/")[-1]
+    pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
     file_path = f"papers/{arxiv_id}.pdf"
 
     if not os.path.exists(file_path):
@@ -124,7 +126,8 @@ async def main():
 
     # 2. Fetch and download papers
     print("\n🔎 Searching arXiv...")
-    papers = optimize_query(field)
+    query_str, year_filter = optimize_query(field)
+    papers = search_arxiv(query_str, year_filter)
     file_paths = [download_pdf(paper) for paper in papers]
 
     # 3. Define your questions; this are the prompt template that allows us to find gap in the research papers

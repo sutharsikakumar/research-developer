@@ -3,9 +3,10 @@ import re
 from datetime import datetime
 from typing import Optional, Set, Tuple
 import spacy
+import arxiv
 
+# Load spaCy without NER
 _nlp = spacy.load("en_core_web_sm", disable=["ner"])
-
 
 CATEGORY_MAP = {
     "language model": "cs.CL",
@@ -47,7 +48,37 @@ def optimize_query(user_text: str) -> Tuple[str, Optional[int]]:
 
     return query, min_year
 
+def search_arxiv(query: str, min_year: Optional[int], max_results: int = 5):
+    search = arxiv.Search(
+        query=query,
+        max_results=max_results,
+        sort_by=arxiv.SortCriterion.SubmittedDate
+    )
+    
+    results = []
+    for result in search.results():
+        pub_year = result.published.year
+        if min_year and pub_year < min_year:
+            continue 
+        results.append({
+            "title": result.title,
+            "authors": ", ".join(str(a) for a in result.authors),
+            "published": result.published.date(),
+            "url": result.entry_id
+        })
+    return results
 
 if __name__ == "__main__":
-    q = input("Ask a research question: ")
-    print(optimise_query(q))
+    user_q = input("Ask a research question: ")
+    query_str, year_filter = optimize_query(user_q)
+    
+    print("\n Optimized arXiv Query:")
+    print(query_str)
+    
+    print("\n Top Matching Papers:")
+    papers = search_arxiv(query_str, year_filter)
+    for i, paper in enumerate(papers, 1):
+        print(f"\n{i}. {paper['title']}")
+        print(f"   Authors: {paper['authors']}")
+        print(f"   Published: {paper['published']}")
+        print(f"   URL: {paper['url']}")
