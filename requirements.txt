@@ -9,3 +9,4 @@ urllib3==2.5.0
 langchain
 langchain-community
 fpdf
+spacy>=3.7,<3.9
