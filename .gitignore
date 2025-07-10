@@ -4,3 +4,5 @@ venv/
 env/
 .venv/
 papers/
+__pycache__/
+*.py[cod]
