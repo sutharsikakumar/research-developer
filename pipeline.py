@@ -104,21 +104,7 @@ async def analyze_papers(file_paths, questions):
         answer = await docs.aquery(question, settings=settings)
         results[question] = answer
 
-    # for question in questions:
-    #     print(f"\n🔍 Asking: {question}")
-    #     retry_attempts = 3
-    #     for attempt in range(retry_attempts):
-    #         try:
-    #             answer = await docs.aquery(question, settings=settings)
-    #             results[question] = answer
-    #             break
-    #         except Exception as e:
-    #             if "Rate limit" in str(e) and attempt < retry_attempts - 1:
-    #                 print("⚠️ Rate limit hit. Retrying in 10 seconds...")
-    #                 await asyncio.sleep(10)
-    #             else:
-    #                 raise e
-    # return results
+    return results 
 
 """
     docs = Docs()
@@ -137,7 +123,7 @@ async def main():
 
     # 2. Fetch and download papers
     print("\n🔎 Searching arXiv...")
-    papers = fetch_papers(field, max_results=1) #currently 2 due open ai api rate limit 
+    papers = fetch_papers(field, max_results=3)
     file_paths = [download_pdf(paper) for paper in papers]
 
     # 3. Define your questions; this are the prompt template that allows us to find gap in the research papers
