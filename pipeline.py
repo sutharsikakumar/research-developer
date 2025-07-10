@@ -5,6 +5,7 @@ import requests
 from dotenv import load_dotenv
 from paperqa import Docs, Settings
 from langchain.document_loaders import PyPDFLoader
+from optimize_arxiv import optimize_query
 import re
 
 load_dotenv()
@@ -123,7 +124,7 @@ async def main():
 
     # 2. Fetch and download papers
     print("\n🔎 Searching arXiv...")
-    papers = fetch_papers(field, max_results=3)
+    papers = optimize_query(field)
     file_paths = [download_pdf(paper) for paper in papers]
 
     # 3. Define your questions; this are the prompt template that allows us to find gap in the research papers

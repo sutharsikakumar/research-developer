@@ -45,7 +45,7 @@ def optimize_query(user_text: str) -> Tuple[str, Optional[int]]:
         cat_clause = " OR ".join(f"cat:{c}" for c in categories)
         query = f"{query} AND ({cat_clause})" if query else f"({cat_clause})"
 
-    return query
+    return query, min_year
 
 
 if __name__ == "__main__":
