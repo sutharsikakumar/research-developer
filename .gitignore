@@ -9,3 +9,17 @@ __pycache__/
 .DS_Store
 *.json
 
+.vscode/
+*.ipynb
+*.log
+Thumbs.db
+dist/
+build/
+*.egg-info/
+*.pyo
+*.pyd
+*.out
+*.coverage
+*.tmp
+*.swp
+
