@@ -1,0 +1,4 @@
+start with: pip insall -r requirements.txt
+1. if testing paperqa2 run paperqa2_test.py
+2. if wanting to check the workflow, run pipeline.py and then make sure pipeline_output.json appears
+3. then run future_work.py and update the pdf with your pdf of interest (only works for one currently). if you say yes to generate starter code, new .py file will be created named starter_project.py

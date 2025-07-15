@@ -99,7 +99,7 @@ async def analyze_papers(file_paths, questions):
     
 
     settings = Settings()
-    settings.llm = "gpt-3.5-turbo" 
+    settings.llm = "gpt-4.1" 
 
     results = {}
     for question in questions:
@@ -145,6 +145,14 @@ async def main():
     print("\n📌 Research Insights:\n")
     for q, a in answers.items():
         print(f"--- {q} ---\n{a}\n")
+
+    # Save output as JSON for future_work.py
+    import json
+    # Convert all answers to strings for JSON serialization
+    answers_str = {q: str(a) for q, a in answers.items()}
+    with open("pipeline_output.json", "w") as f:
+        json.dump(answers_str, f, indent=2)
+    print("Results saved to pipeline_output.json")
 
 if __name__ == "__main__":
     asyncio.run(main())
