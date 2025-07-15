@@ -6,6 +6,8 @@ PDF_PATH      = "papers/paper_test.pdf"
 PIPELINE_JSON = "pipeline_output.json"
 LLM_NAME      = "gpt-4.1"  
 
+#some qualms remaining, need to incporporate multuple papers
+
 async def get_future_points(docs, settings, context):
     query = textwrap.dedent(f"""
         Here is an analysis snippet (JSON):\n{context}\n\n
@@ -26,6 +28,9 @@ async def interactive_loop():
                                             json.dumps(pipeline_json, indent=2))
     print("[bold cyan]Suggested future‑work directions:[/]")
     print(future_points)
+
+    # adjust formatting here, how would this work on text? 
+    # better prompt engineering needed
 
     choice = input("\nPick an item number (or keyword) to expand: ")
     follow_query = f"""
