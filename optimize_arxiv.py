@@ -10,6 +10,8 @@ import arxiv
 
 _nlp = spacy.load("en_core_web_sm", disable=["ner"])
 
+#update for potentially better results, not sure if it works as well as it could though
+#some qualms remaining
 
 CATEGORY_MAP = {
     "language model": "cs.CL",
