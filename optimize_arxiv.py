@@ -66,6 +66,9 @@ def _parse_author_filters(text: str) -> List[str]:
         r"(?:papers?\s+)?by\s+([A-Z][A-Za-z\-']+(?:\s+[A-Z][A-Za-z\-']+)*)",
         r"author\s+([A-Z][A-Za-z\-']+(?:\s+[A-Z][A-Za-z\-']+)*)",
     ]
+
+# i think using re.search
+
     authors: List[str] = []
     for pat in author_patterns:
         for m in re.finditer(pat, text, flags=re.I):
