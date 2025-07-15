@@ -8,3 +8,5 @@ langchain-community
 spacy>=3.7,<3.9
 PyPDF2
 openai
+langchain-openai
+langchain-text-splitters
