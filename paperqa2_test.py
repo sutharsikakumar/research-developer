@@ -7,7 +7,7 @@ from paperqa import Settings, Docs, ask
 
 async def main():
     docs = Docs()
-    await docs.aadd("paperqa2_sample/ART20203995.pdf")
+    await docs.aadd("sample_paper/ART20203995.pdf")
     settings = Settings()
     settings.llm = "gpt-3.5-turbo"
     ask = input("Ask a machine learning question: ")
