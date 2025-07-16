@@ -1,0 +1,126 @@
+
+------------ limitation_pipeline.py ---------------
+
+Question: What future work or open research directions are suggested by the authors?
+
+The authors propose several future research directions across neuromorphic computing (NC), metaheuristics (MHs), and quantum kernels. For the NeurOptimiser framework, they suggest developing adaptive rule selection mechanisms, increasing model heterogeneity, and deploying the framework on physical NC hardware at larger scales. Further, they plan to integrate advanced dynamic models, extend support to multi-objective and large-scale optimization, and enable real-time evaluation in embedded environments to address scalability and adaptability in high-dimensional, multimodal, and ill-conditioned problems (Cruz2025 pages 22-23). More broadly, they advocate for the integration of NC and MHs to create 'Nheuristics'—metaheuristics embedded within spiking neural dynamics—and emphasize the need for unified, flexible approaches to generalize spike-driven heuristics beyond problem-specific applications (Cruz2025 pages 2-2).
+In the quantum kernel domain, future work includes increasing the capacity of parameterized quantum kernels (pQK) by adding encoding and entangling gates, expanding the range of scaling parameters, and exploring alternative encoding schemes and distance metrics. The authors also highlight the importance of running the full pipeline on quantum hardware, despite current computational limitations (Slabbert2025 pages 14-15). Additionally, they suggest improving QLIF kernel performance in high-dimensional spaces, optimizing dimensionality reduction techniques, and further investigating pQK trainability (Slabbert2025 pages 15-16).
+Finally, in spiking neural networks for robotics, the release of new datasets is intended to facilitate further research in SNN architecture optimization, parameter tuning, and autonomous system applications (Ali2025 pages 6-6).
+
+References
+
+1. (Cruz2025 pages 22-23): Cruz-Duarte, Jorge M., and El-Ghazali Talbi. *Neuroptimisation: The Spiking Way to Evolve*. Preprint, 14 July 2025, arXiv:2507.08320v1. Accessed 2025.
+
+2. (Cruz2025 pages 2-2): Cruz-Duarte, Jorge M., and El-Ghazali Talbi. *Neuroptimisation: The Spiking Way to Evolve*. Preprint, 14 July 2025, arXiv:2507.08320v1. Accessed 2025.
+
+3. (Slabbert2025 pages 14-15): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arxiv.org/abs/2507.07018. Accessed 2025.
+
+4. (Slabbert2025 pages 15-16): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arxiv.org/abs/2507.07018. Accessed 2025.
+
+5. (Ali2025 pages 6-6): Ali, Zainab, et al. "On the Importance of Neural Membrane Potential Leakage for LIDAR-Based Robot Obstacle Avoidance Using Spiking Neural Networks." *arXiv*, 13 July 2025, arxiv.org/abs/2507.09538. Accessed 30 Oct. 2025.
+
+
+--------------- future_work.py --------------------
+
+
+1. Improve QLIF kernel performance in high-dimensional spaces (Slabbert2025 pages 11-13, Slabbert2025 pages 15-16, Slabbert2025 pages 14-15, 
+Slabbert2025 pages 1-1).
+2. Optimize dimensionality reduction techniques for quantum spectral clustering (Slabbert2025 pages 1-2, Slabbert2025 pages 1-1, Slabbert2025 pages 
+11-13, Slabbert2025 pages 15-16, Slabbert2025 pages 14-15).
+3. Investigate the trainability of parameterized quantum kernels (pQK) (Slabbert2025 pages 1-2, Slabbert2025 pages 15-16, Slabbert2025 pages 14-15, 
+Slabbert2025 pages 1-1).
+4. Increase pQK capacity by adding encoding and entangling gates (Slabbert2025 pages 1-2, Slabbert2025 pages 15-16, Slabbert2025 pages 14-15, 
+Slabbert2025 pages 1-1).
+5. Expand the range of scaling parameters in pQK circuits (Slabbert2025 pages 15-16, Slabbert2025 pages 14-15).
+6. Explore alternative encoding schemes for quantum kernels (Slabbert2025 pages 1-2, Slabbert2025 pages 1-1, Slabbert2025 pages 11-13, Slabbert2025 
+pages 15-16, Slabbert2025 pages 14-15).
+7. Investigate alternative distance metrics for quantum kernels (pqac-155aa33d, Slabbert2025 pages 15-16, Slabbert2025 pages 14-15).
+8. Run the full quantum spectral clustering pipeline on quantum hardware despite current computational limitations (Slabbert2025 pages 1-2, 
+Slabbert2025 pages 15-16, Slabbert2025 pages 14-15, Slabbert2025 pages 1-1).
+
+References
+
+1. (Slabbert2025 pages 11-13): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+2. (Slabbert2025 pages 15-16): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+3. (Slabbert2025 pages 14-15): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+4. (Slabbert2025 pages 1-1): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+5. (Slabbert2025 pages 1-2): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+
+Pick an item number (or keyword) to expand: 1
+
+Project scaffold:
+ Question: 
+        You chose: 1. Draft a concrete research framework to tackle it.
+        Include: goal, datasets, methods/models, evaluation metrics, and a
+        high‑level file‑structure / code outline. Bullet points please.
+    
+
+- **Goal:**  
+  Develop and benchmark quantum spectral clustering algorithms using parameterized quantum kernels (pQK) and quantum neuromorphic kernels, aiming to
+identify kernel methods that best capture complex, high-dimensional data structures for unsupervised clustering (Slabbert2025 pages 1-2, 
+Slabbert2025 pages 15-16, Slabbert2025 pages 1-1).
+
+- **Datasets:**  
+  - Synthetic: Blobs, Circles, Moons  
+  - Real-world: Iris, Sloan Digital Sky Survey (SDSS) (Slabbert2025 pages 1-2, Slabbert2025 pages 15-16, Slabbert2025 pages 1-1).
+
+- **Methods/Models:**  
+  - **Parameterized Quantum Kernels (pQK):**  
+    - Angle encoding with parametric scaling  
+    - Three-layer unitary gates  
+    - Grid search for kernel-target alignment optimization  
+    - Potential model complexity increase via additional encoding/entangling gates or scaling parameters (Slabbert2025 pages 15-16, Slabbert2025 
+pages 14-15, Slabbert2025 pages 1-1)
+  - **Quantum Neuromorphic Kernels:**  
+    - Population coding to generate spike trains  
+    - Temporal distance metrics for kernel computation (Slabbert2025 pages 1-2, Slabbert2025 pages 1-1)
+  - **Classical Baseline:**  
+    - Radial Basis Function (RBF) kernel (Slabbert2025 pages 14-15)
+  - **Dimensionality Reduction (optional):**  
+    - Principal Component Analysis (PCA) (Slabbert2025 pages 15-16)
+
+- **Evaluation Metrics:**  
+  - Label-based classification accuracy  
+  - Clustering metrics: Adjusted Rand Index (ARI), V-measure  
+  - Optimal cluster prediction via elbow-like plots (Slabbert2025 pages 15-16, Slabbert2025 pages 14-15, Slabbert2025 pages 1-1)
+
+- **High-level File Structure / Code Outline:**  
+  - `data/`: Dataset loaders and preprocessing scripts  
+  - `kernels/`:  
+    - `pqk.py`: Parameterized quantum kernel implementation  
+    - `neuromorphic.py`: Quantum neuromorphic kernel implementation  
+    - `classical.py`: Classical RBF kernel  
+  - `clustering/`:  
+    - `spectral.py`: Spectral clustering pipeline  
+    - `metrics.py`: Evaluation metrics (ARI, V-measure, etc.)  
+  - `experiments/`:  
+    - `run_experiments.py`: Experiment orchestration, grid search, and result logging  
+  - `utils/`: Helper functions (encoding, scaling, PCA)  
+  - `results/`: Output files, plots, and summary tables (Slabbert2025 pages 15-16, Slabbert2025 pages 14-15, Slabbert2025 pages 1-1)
+
+References
+
+1. (Slabbert2025 pages 1-2): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+2. (Slabbert2025 pages 15-16): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+3. (Slabbert2025 pages 1-1): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+4. (Slabbert2025 pages 14-15): Slabbert, Donovan, Dean Brand, and Francesco Petruccione. "Quantum Spectral Clustering: Comparing Parameterized and 
+Neuromorphic Quantum Kernels." *arXiv*, 10 July 2025, arXiv:2507.07018v1. Accessed 2025.
+
+
+Generate starter code? [y/n] y
