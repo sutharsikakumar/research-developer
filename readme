@@ -12,3 +12,6 @@ current issues that need to be addressed???:
 - 4.1 vs 3.5 turbo changes answer significantly but 4.1 is more expensive
 - paper used most often in the limitation_pipeline.py file may not be the best paper that was downloaded from arxiv for that particular search (like download really good papers but barely use them in output response)
 - i think there is a better way to filter for papers on arxiv but not sure, if we could take a more verbose prompt, users could add date, author maybe, but not too sure
+
+some thoughts i was having... best to keep context windows short, token usage low
+![thoughts](public/thoughts.png)
