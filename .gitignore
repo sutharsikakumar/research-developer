@@ -12,10 +12,8 @@ __pycache__/
 .vscode/
 *.ipynb
 *.log
-Thumbs.db
 dist/
 build/
-*.egg-info/
 *.pyo
 *.pyd
 *.out

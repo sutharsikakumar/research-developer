@@ -2,3 +2,13 @@ start with: pip insall -r requirements.txt
 1. if testing paperqa2 run paperqa2_test.py
 2. if wanting to check the workflow, run pipeline.py and then make sure pipeline_output.json appears
 3. then run future_work.py and update the pdf with your pdf of interest (only works for one currently). if you say yes to generate starter code, new .py file will be created named starter_project.py
+4. current example output of the pipeline, look at sample_output folder
+
+current issues that need to be addressed???:
+- only able to generate future work based on one paper in future_work.py
+- future_work.py code generation is kinda mid...
+- future_work.py results are not cached yet (this we can add)
+- limitation_pipeline.py does not work for verbose prompts, token limit is exceeded (cant really think of a workaround for this)... workflow uses a lot of tokens
+- 4.1 vs 3.5 turbo changes answer significantly but 4.1 is more expensive
+- paper used most often in the limitation_pipeline.py file may not be the best paper that was downloaded from arxiv for that particular search (like download really good papers but barely use them in output response)
+- i think there is a better way to filter for papers on arxiv but not sure, if we could take a more verbose prompt, users could add date, author maybe, but not too sure

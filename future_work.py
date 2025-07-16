@@ -2,7 +2,7 @@ import asyncio, json, textwrap
 from paperqa import Docs, Settings
 from rich import print
 
-PDF_PATH      = "papers/paper_test.pdf"
+PDF_PATH      = "papers/test_future.pdf"
 PIPELINE_JSON = "pipeline_output.json"
 LLM_NAME      = "gpt-4.1"  
 
@@ -36,7 +36,7 @@ async def interactive_loop():
     follow_query = f"""
         You chose: {choice}. Draft a concrete research framework to tackle it.
         Include: goal, datasets, methods/models, evaluation metrics, and a
-        high‑level file‑structure / code outline. Bullet points please.
+        high‑level file‑structure / code outline if applicable. Bullet points please.
     """
     project_plan = await docs.aquery(follow_query, settings=settings)
     print("\n[bold green]Project scaffold:[/]\n", project_plan.formatted_answer if hasattr(project_plan, "formatted_answer") else str(project_plan))

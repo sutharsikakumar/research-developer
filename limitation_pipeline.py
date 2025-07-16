@@ -1,4 +1,5 @@
 import os
+from warnings import filters
 import arxiv
 import asyncio
 import requests
@@ -123,12 +124,12 @@ async def analyze_papers(file_paths, questions):
 
 async def main():
     # 1. Get research field
-    field = input("Enter the research field you want to explore (e.g., 'graph neural networks'): ")
+    field = input("Enter the research field you want to explore (for best results specifiy time-frame of papers, as well as author name if preferred): ")
 
     # 2. Fetch and download papers
     print("\n🔎 Searching arXiv...")
-    query_str, year_filter = optimize_query(field)
-    papers = search_arxiv(query_str, year_filter)
+    query_str, filters = optimize_query(field)
+    papers = search_arxiv(query_str, filters)
     file_paths = [download_pdf(paper) for paper in papers]
 
     # 3. Define your questions; this are the prompt template that allows us to find gap in the research papers
