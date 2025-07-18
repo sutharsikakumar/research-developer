@@ -6,7 +6,7 @@ import requests
 from dotenv import load_dotenv
 from paperqa import Docs, Settings
 from langchain.document_loaders import PyPDFLoader
-from optimize_arxiv import optimize_query, search_arxiv
+from main.optimize_arxiv import optimize_query, search_arxiv
 import re
 
 load_dotenv()
