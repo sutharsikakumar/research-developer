@@ -10,3 +10,4 @@ PyPDF2
 openai
 langchain-openai
 langchain-text-splitters
+faiss-cpu
