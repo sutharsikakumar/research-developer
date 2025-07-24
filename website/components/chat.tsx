@@ -19,7 +19,7 @@ export default function Chat() {
   const [code, setCode] = useState<string>();
   const [chosenPdf, setChosenPdf] = useState<string>();
 
-  // ---------- generic poller ----------
+
   const poll = (id: string, onDone: (r: any) => void) => {
     const timer = setInterval(async () => {
       const j = await get<{ status: string; result: any; error: string }>(
