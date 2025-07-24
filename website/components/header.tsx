@@ -21,7 +21,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
               currentPage === "past-project" ? "text-gray-900 font-semibold" : "text-gray-700"
             }`}
           >
-            past project
+            past projects
           </button>
         </nav>
       </div>
