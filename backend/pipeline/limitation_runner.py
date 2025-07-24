@@ -1,15 +1,3 @@
-"""
-Non‑interactive wrapper of your original limitation_pipeline.py.
-
-Exposes `async run(prompt: str, *, max_results=5) → dict`.
-Returns:
-{
-    "answers": {question: answer_str, ...},
-    "pdf_paths": ["papers/1234.5678.pdf", ...],
-    "query": original_arxiv_query,
-}
-"""
-
 import os, json, re, asyncio, requests, arxiv
 from pathlib import Path
 from dotenv import load_dotenv

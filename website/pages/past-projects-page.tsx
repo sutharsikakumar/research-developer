@@ -43,7 +43,6 @@ export default function PastProjectsPage({ projects, onProjectClick }: PastProje
               </div>
             ))}
 
-            {/* Empty cards */}
             {[...Array(3)].map((_, index) => (
               <div key={`empty-${index}`} className="p-8 rounded-2xl bg-green-200 opacity-50">
                 <div className="h-20"></div>

@@ -20,7 +20,7 @@ export default function Header({ currentPage, onNavigate }: HeaderProps) {
             className="object-contain mr-2"
           />
           <h1 className="text-xl font-bold text-gray-800">
-            Research Helper
+            Curious
           </h1>
         </div>
       </div>

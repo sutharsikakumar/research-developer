@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 
-// Components
 import Header from "./components/header"
 
 // Pages
@@ -46,7 +45,7 @@ export default function ResearchHelper() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [projects, setProjects] = useState<Project[]>(initialMockProjects)
 
-  // Conversation state
+
   const [conversationTopic, setConversationTopic] = useState("")
   const [conversationMessages, setConversationMessages] = useState<Message[]>([])
 
@@ -56,19 +55,18 @@ export default function ResearchHelper() {
   }
 
   const handleTopicSubmit = (topic: string) => {
-    // Create new project
+
     const newProject: Project = {
-      id: Date.now().toString(), // Simple ID generation
+      id: Date.now().toString(), 
       title: topic,
-      date: new Date().toISOString().split("T")[0], // Current date in YYYY-MM-DD format
+      date: new Date().toISOString().split("T")[0], 
       description: `Research exploration on ${topic}. This project was created to investigate and analyze various aspects of this topic.`,
-      conversations: 1, // Starting with 1 conversation
+      conversations: 1, 
     }
 
-    // Add to projects list
+
     setProjects((prevProjects) => [newProject, ...prevProjects])
 
-    // Set up conversation
     setConversationTopic(topic)
     setConversationMessages([])
     setCurrentPage("conversation")
@@ -86,7 +84,7 @@ export default function ResearchHelper() {
     const newMessages = [...conversationMessages, { role: "user" as const, content: message }]
     setConversationMessages(newMessages)
 
-    // Update conversation count for current project
+
     if (conversationTopic) {
       setProjects((prevProjects) =>
         prevProjects.map((project) =>
@@ -95,7 +93,7 @@ export default function ResearchHelper() {
       )
     }
 
-    // Simulate AI response
+
     setTimeout(() => {
       setConversationMessages([
         ...newMessages,

@@ -15,7 +15,7 @@ export default function HomePage({ onSubmit }: HomePageProps) {
   const textContainerRef = useRef<HTMLDivElement>(null)
   const faceRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLDivElement>(null)
-  const fullText = "What research project are you interested in exploring?"
+  const fullText = "Generate research ideas; change the world."
 
   useEffect(() => {
     let index = 0
@@ -45,32 +45,15 @@ export default function HomePage({ onSubmit }: HomePageProps) {
   }
 
   const exampleProjects = [
-    "Neural Network Visualization",
-    "Climate Data Analysis", 
-    "Quantum Computing Basics"
+    "Neural Network",
+    "Climate Change", 
+    "Raman Spectroscopy"
   ]
 
-  const formatTextWithBreaks = (text: string) => {
-    const words = text.split(' ')
-    const midPoint = Math.ceil(words.length)
-    const firstLine = words.slice(0, midPoint).join(' ')
-    const secondLine = words.slice(midPoint).join(' ')
-    
-    return (
-      <>
-        {firstLine}
-        <br />
-        {secondLine}
-      </>
-    )
-  }
-
   return (
-    <div className="min-h-screen bg-gray-50 relative overflow-hidden" style={{ fontFamily: '"Inter", "SF Pro Display", system-ui, sans-serif' }}>
-      {/* Main content - centered vertically and horizontally */}
-      <div className="flex-1 flex items-center justify-center pt-0 px-6 relative z-20 h-screen">
+    <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+      <div className="flex-1 flex items-center justify-center pt-0 px-6 relative z-20 h-screen -translate-y-20">
         <div className="flex items-center gap-24 max-w-5xl">
-          {/* Face illustration - centered */}
           <div ref={faceRef} className="flex-shrink-0">
             <div
               className="flex-shrink-0 flex justify-center"
@@ -90,20 +73,28 @@ export default function HomePage({ onSubmit }: HomePageProps) {
             </div>
           </div>
 
-          {/* Question text - centered */}
-          <div ref={textContainerRef} className="flex-1 max-w-md text-center">
+          <div ref={textContainerRef} className="flex-1 max-w-2xl text-center">
             <h2 
               className="font-semibold text-gray-900 leading-tight"
               style={{ fontSize: `${fontSize}rem`, lineHeight: 1.15 }}
             >
-              {displayedText && formatTextWithBreaks(displayedText)}
-              <span className="animate-pulse">|</span>
+              {displayedText.includes("project") ? (
+                <>
+                  {displayedText.split("project")[0]}project<br />
+                  {displayedText.split("project")[1] || ""}
+                  <span className="animate-pulse">|</span>
+                </>
+              ) : (
+                <>
+                  {displayedText}
+                  <span className="animate-pulse">|</span>
+                </>
+              )}
             </h2>
           </div>
         </div>
       </div>
 
-      {/* Floating input section - centered below main content */}
       <div className="fixed top-5/6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl px-6 z-30">
         <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 p-6">
           <div className="relative flex items-center">
@@ -114,7 +105,6 @@ export default function HomePage({ onSubmit }: HomePageProps) {
               onChange={(e) => setInputValue(e.target.value)}
               onKeyDown={handleKeyPress}
               className="w-full px-6 py-4 pr-16 text-lg bg-gray-50 text-gray-900 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              style={{ fontFamily: '"Inter", system-ui, sans-serif' }}
             />
             
             <button
@@ -139,8 +129,7 @@ export default function HomePage({ onSubmit }: HomePageProps) {
         </div>
       </div>
 
-      {/* Example projects - centered below input */}
-      <div className="fixed top-[70%] left-1/2 transform -translate-x-1/2 w-full max-w-xl px-8 z-20">
+      <div className="fixed top-[90%] left-1/2 transform -translate-x-1/2 w-full max-w-xl px-8 z-20">
         <div className="flex justify-center gap-4">
           {exampleProjects.map((project, index) => (
             <button
