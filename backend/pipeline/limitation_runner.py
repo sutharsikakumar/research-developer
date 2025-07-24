@@ -15,14 +15,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 from paperqa import Docs, Settings
 from langchain.document_loaders import PyPDFLoader
-from optimize_arxiv import optimize_query, search_arxiv  # existing helper
+from optimize_arxiv import optimize_query, search_arxiv
 from fpdf import FPDF
 
 load_dotenv()
 os.makedirs("papers", exist_ok=True)
 
 
-# ---------- helpers ---------------------------------------------------------
+
 def _write_text_to_pdf(text: str, output_path: str):
     pdf = FPDF()
     pdf.set_auto_page_break(auto=True, margin=15)
@@ -74,7 +74,7 @@ async def _analyze(file_paths: list[str], questions: list[str]) -> dict[str, str
     return answers
 
 
-# ---------- public entry‑point ----------------------------------------------
+
 async def run(prompt: str, *, max_results: int = 5) -> dict:
     """
     Top‑level coroutine used by Celery / FastAPI.
@@ -94,12 +94,10 @@ async def run(prompt: str, *, max_results: int = 5) -> dict:
     ]
     answers = await _analyze(pdf_paths, questions)
 
-    # Also persist JSON locally for backwards compatibility
     Path("pipeline_output.json").write_text(json.dumps(answers, indent=2))
 
     return {"answers": answers, "pdf_paths": pdf_paths, "query": query_str}
 
 
-# ---------- CLI fallback ----------------------------------------------------
 if __name__ == "__main__":
     asyncio.run(run(input("Research field (incl. timeframe, author, etc.): ")))
