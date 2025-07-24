@@ -73,7 +73,7 @@ async def run(
     return {"ideas": ideas, "project": project, "code": code}
 
 
-# CLI helper – keeps original interactive flow
+
 if __name__ == "__main__":
     async def _cli():
         ideas_dict = await run("pipeline_output.json", "papers/test_future.pdf")

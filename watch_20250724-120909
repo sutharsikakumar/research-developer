@@ -1,0 +1,29 @@
+Every 2.0s: curl -s localhost:8000/jobs/ | jq .                                                         Sutharsikas-MacBook-Air.local: 12:09:07
+                                                                                                                                  in 0.009s (0)
+{                                                                                                                                              
+  "detail": "Not Found"                                                                                                                        
+}                                                                                                                                              
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
+                                                                                                                                               
