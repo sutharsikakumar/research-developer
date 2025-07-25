@@ -45,9 +45,9 @@ export default function HomePage({ onSubmit }: HomePageProps) {
   }
 
   const exampleProjects = [
-    "Neural Network",
+    "Cancer Research",
     "Climate Change", 
-    "Raman Spectroscopy"
+    "Quantum Computing"
   ]
 
   return (
