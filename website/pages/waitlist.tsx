@@ -124,7 +124,7 @@ export default function WaitListPage() {
     return (
       <div style={{
         minHeight: "100vh",
-        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        background: "linear-gradient(135deg,rgb(255, 255rgb(248, 248, 248)%,rgb(240, 231, 226) 100%)",
         paddingTop: "80px",
         fontFamily: "Outfit, -apple-system, BlinkMacSystemFont, sans-serif"
       }}>
@@ -156,12 +156,6 @@ export default function WaitListPage() {
                 alt="Logo"
                 width={200}
                 height={200}
-                style={{ 
-                  objectFit: "contain",
-                  filter: "drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1))"
-                }}
-                onError={() => console.error('Next.js Image failed to load')}
-                priority
               />
             </div>
             <h2 style={{
@@ -240,12 +234,6 @@ export default function WaitListPage() {
               width={400}
               height={400}
               priority
-              style={{ 
-                objectFit: "contain", 
-                display: "block",
-                filter: "drop-shadow(0 15px 35px rgba(0, 0, 0, 0.1))"
-              }}
-              onError={() => console.error('Main image failed to load')}
             />
           </div>
         </div>
@@ -363,12 +351,6 @@ export default function WaitListPage() {
                 position: "relative",
                 overflow: "hidden"
               }}
-              onMouseEnter={(e) => {
-                if (email.trim() && !isSubmitting) {
-                  e.currentTarget.style.transform = "scale(1.05)"
-                  e.currentTarget.style.boxShadow = "0 10px 25px rgba(255, 107, 53, 0.4)"
-                }
-              }}
               onMouseLeave={(e) => {
                 if (!isSubmitting) {
                   e.currentTarget.style.transform = "scale(1)"
@@ -403,17 +385,17 @@ export default function WaitListPage() {
         >
           <p style={{ 
             color: "#6b7280", 
-            fontSize: "20px",
+            fontSize: "22px",
             transition: "color 0.3s ease"
           }}>
-            Join <span style={{ 
+            Join the waitlist to have <span style={{ 
               color: "#ff6b35", 
               fontWeight: "600",
               background: "linear-gradient(135deg, #ff6b35, #ff8c42)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               position: "relative"
-            }}>the waitlist</span> to have early access to the beta.
+            }}>early access</span> to the beta.
           </p>
         </div>
       </div>
