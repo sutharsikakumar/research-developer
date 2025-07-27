@@ -11,13 +11,20 @@ interface HeaderProps {
 }
 
 export default function Header({ currentPage, onNavigate }: HeaderProps) {
+  const handleHomeClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    console.log("Home button clicked") // Debug log
+    onNavigate("home")
+  }
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-white/90 px-6 py-4 shadow-sm backdrop-blur">
       <div className="flex items-center justify-between">
         {/* logo / title */}
         <button
-          onClick={() => onNavigate("home")}
-          className="flex items-center gap-3"
+          onClick={handleHomeClick}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          type="button"
         >
           <h1 className="text-2xl font-bold text-orange-800">Unmeasured</h1>
         </button>
