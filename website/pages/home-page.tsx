@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react"
 import type React from "react"
 
+
 interface HomePageProps {
   onSubmit: (topic: string) => void
 }
