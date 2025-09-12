@@ -1,5 +1,0 @@
-cd website and then run npm run dev to access the website, also make sure to run:
-1. celery -A backend.workers.tasks worker --loglevel=info
-2. uvicorn backend.app.main:app --reload
-
-on two different terminals to actively see what stage it is on.

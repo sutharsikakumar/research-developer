@@ -47,7 +47,7 @@ export default function HomePage({ onSubmit }: HomePageProps) {
 
   const exampleProjects = [
     "Cancer Research",
-    "Climate Change", 
+    "Climate Change",
     "Quantum Computing"
   ]
 
@@ -75,7 +75,7 @@ export default function HomePage({ onSubmit }: HomePageProps) {
           </div>
 
           <div ref={textContainerRef} className="flex-1 max-w-2xl text-center">
-            <h2 
+            <h2
               className="font-semibold text-gray-900 leading-tight"
               style={{ fontSize: `${fontSize}rem`, lineHeight: 1.15 }}
             >
@@ -107,7 +107,7 @@ export default function HomePage({ onSubmit }: HomePageProps) {
               onKeyDown={handleKeyPress}
               className="w-full px-6 py-4 pr-16 text-lg bg-gray-50 text-gray-900 rounded-xl border border-gray-200 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
             />
-            
+
             <button
               onClick={handleSubmit}
               disabled={!inputValue.trim()}

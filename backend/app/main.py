@@ -40,7 +40,7 @@ class JobOut(BaseModel):
 
 @app.post("/jobs/pipeline", response_model=JobOut)
 def start_pipeline(body: PipelineIn):
-    """Enqueue the ‘limitation’ pipeline and return a job_id."""
+
     job_id = str(uuid.uuid4())
     r.hset(job_id, mapping={"status": "QUEUED"})
     run_limitation.delay(job_id, body.prompt)
@@ -49,7 +49,7 @@ def start_pipeline(body: PipelineIn):
 
 @app.post("/jobs/future", response_model=JobOut)
 def start_future(body: FutureIn):
-    """Enqueue the ‘future work’ pipeline and return a job_id."""
+
     job_id = str(uuid.uuid4())
     r.hset(job_id, mapping={"status": "QUEUED"})
     run_future_work.delay(
@@ -64,7 +64,7 @@ def start_future(body: FutureIn):
 
 @app.get("/jobs/{job_id}", response_model=JobOut)
 def job_status(job_id: str):
-    """Poll the current status/result of a job."""
+
     if not r.exists(job_id):
         raise HTTPException(status_code=404, detail="Job not found")
 

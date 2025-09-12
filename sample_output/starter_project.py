@@ -5,80 +5,80 @@ Below is a Python project scaffold for implementing and comparing parameterized 
 ```python
 import numpy as np
 
-# Data loading and preprocessing
-def load_dataset(name):
-    """
-    TODO: Implement dataset loading for 'Iris', 'SDSS', 'Blobs', 'Circles', 'Moons'.
-    Returns: features, labels (if available)
-    """
-    pass  # (Slabbert2025 pages 11-13, Slabbert2025 pages 1-2)
 
-# Parameterized Quantum Kernel (pQK) implementation
+def load_dataset(name):
+
+
+
+
+    pass
+
+
 def encode_data_pqk(features, params):
-    """
-    TODO: Encode classical data into quantum states using parameterized circuits.
-    Returns: list of quantum states
-    """
-    pass  # (Slabbert2025 pages 4-5, Slabbert2025 pages 14-15)
+
+
+
+
+    pass
 
 def compute_kernel_matrix_pqk(states):
-    """
-    TODO: Compute kernel matrix using fidelity/overlap between quantum states.
-    Returns: kernel matrix (numpy array)
-    """
-    pass  # (Slabbert2025 pages 4-5, Slabbert2025 pages 14-15)
+
+
+
+
+    pass
 
 def optimize_pqk_params(features):
-    """
-    TODO: Implement grid search or other optimization for circuit parameters.
-    Returns: optimal parameters
-    """
-    pass  # (Slabbert2025 pages 4-5)
 
-# Quantum Neuromorphic Kernel (QLIF VP) implementation
+
+
+
+    pass
+
+
 def encode_data_qlif(features):
-    """
-    TODO: Convert features to spike trains using LIF neuron model.
-    Returns: list of spike trains
-    """
-    pass  # (Slabbert2025 pages 4-5, Slabbert2025 pages 8-8)
+
+
+
+
+    pass
 
 def compute_vp_distance_matrix(spike_trains):
-    """
-    TODO: Compute Victor-Purpura distance matrix between spike trains.
-    Returns: distance matrix (numpy array)
-    """
-    pass  # (Slabbert2025 pages 8-8)
+
+
+
+
+    pass
 
 def compute_kernel_matrix_qlif(distance_matrix, sigma):
-    """
-    TODO: Transform distance matrix into kernel matrix using Gaussian function.
-    Returns: kernel matrix (numpy array)
-    """
-    pass  # (Slabbert2025 pages 8-8)
 
-# Spectral Clustering
+
+
+
+    pass
+
+
 def spectral_clustering(kernel_matrix, n_clusters):
-    """
-    TODO: Implement spectral clustering using the kernel matrix.
-    Returns: cluster labels
-    """
-    pass  # (Slabbert2025 pages 11-13, Slabbert2025 pages 1-2)
 
-# Evaluation
+
+
+
+    pass
+
+
 def evaluate_clustering(labels_true, labels_pred):
-    """
-    TODO: Compute ARI and V-measure for clustering evaluation.
-    Returns: ARI, V-measure
-    """
-    pass  # (Slabbert2025 pages 14-15)
 
-# Main pipeline
+
+
+
+    pass
+
+
 def main():
-    """
-    TODO: Integrate all steps for both pQK and QLIF VP pipelines.
-    """
-    pass  # (Slabbert2025 pages 11-13, Slabbert2025 pages 1-2)
+
+
+
+    pass
 
 if __name__ == "__main__":
     main()

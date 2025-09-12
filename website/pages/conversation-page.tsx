@@ -59,7 +59,7 @@ export default function ConversationPage() {
 
   const pickPdf = async (path: string) => {
     chosenPdfRef.current = path
-    setSelectedPdf(path) 
+    setSelectedPdf(path)
     setStage("waitIdeas")
     const { job_id } = await post<{ job_id: string }>("/jobs/future", {
       pipeline_json: "pipeline_output.json",
@@ -104,9 +104,9 @@ export default function ConversationPage() {
   return (
     <div className="bg-gray-50" style={{ height: 'calc(100vh - 74px)', marginTop: '74px' }}>
       <div className="flex h-full">
-        {/* Left Panel - Chat Interface */}
+        {}
         <div className="w-1/2 flex flex-col border-r border-gray-200">
-          {/* Chat Messages Area */}
+          {}
           <div className="flex-1 overflow-y-auto p-6">
             <div className="max-w-2xl mx-auto">
               {messages.length === 0 ? (

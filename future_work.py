@@ -4,16 +4,16 @@ from rich import print
 
 PDF_PATH      = "papers/test_future.pdf"
 PIPELINE_JSON = "pipeline_output.json"
-LLM_NAME      = "gpt-4.1"  
+LLM_NAME      = "gpt-4.1"
 
-#some qualms remaining, need to incporporate multuple papers
+
 
 async def get_future_points(docs, settings, context):
-    query = textwrap.dedent(f"""
-        Here is an analysis snippet (JSON):\n{context}\n\n
-        List the future work or open problems *explicitly mentioned* in the paper.
-        Return a numbered bullet list; keep each bullet under 25 words.
-    """)
+    query = textwrap.dedent(f
+
+
+
+)
     resp = await docs.aquery(query, settings=settings)
     return resp.formatted_answer if hasattr(resp, "formatted_answer") else str(resp)
 
@@ -29,15 +29,15 @@ async def interactive_loop():
     print("[bold cyan]Suggested future‑work directions:[/]")
     print(future_points)
 
-    # adjust formatting here, how would this work on text? 
-    # better prompt engineering needed
+
+
 
     choice = input("\nPick an item number (or keyword) to expand: ")
-    follow_query = f"""
-        You chose: {choice}. Draft a concrete research framework to tackle it.
-        Include: goal, datasets, methods/models, evaluation metrics, and a
-        high‑level file‑structure / code outline if applicable. Bullet points please.
-    """
+    follow_query = f
+
+
+
+
     project_plan = await docs.aquery(follow_query, settings=settings)
     print("\n[bold green]Project scaffold:[/]\n", project_plan.formatted_answer if hasattr(project_plan, "formatted_answer") else str(project_plan))
 

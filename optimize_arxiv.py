@@ -10,8 +10,8 @@ import arxiv
 
 _nlp = spacy.load("en_core_web_sm", disable=["ner"])
 
-#update for potentially better results, not sure if it works as well as it could though
-#some qualms remaining
+
+
 
 CATEGORY_MAP = {
     "language model": "cs.CL",
@@ -44,7 +44,7 @@ SORT_MAP = {
 }
 
 def _noun_phrases(text: str) -> Set[str]:
-    """Return lowercase noun phrases of length 1‑4 tokens."""
+
     doc = _nlp(text.lower())
     return {
         " ".join(tok.text for tok in chunk).strip()
@@ -53,7 +53,7 @@ def _noun_phrases(text: str) -> Set[str]:
     }
 
 def _expand_synonyms(phrases: Set[str]) -> Set[str]:
-    """Add known synonyms so they participate in the search."""
+
     expanded = set(phrases)
     for p in list(phrases):
         if p in SYNONYM_MAP:
@@ -61,13 +61,13 @@ def _expand_synonyms(phrases: Set[str]) -> Set[str]:
     return expanded
 
 def _parse_author_filters(text: str) -> List[str]:
-    """Extract author names following 'by' or 'author'."""
+
     author_patterns = [
         r"(?:papers?\s+)?by\s+([A-Z][A-Za-z\-']+(?:\s+[A-Z][A-Za-z\-']+)*)",
         r"author\s+([A-Z][A-Za-z\-']+(?:\s+[A-Z][A-Za-z\-']+)*)",
     ]
 
-# i think using re.search
+
 
     authors: List[str] = []
     for pat in author_patterns:
@@ -78,7 +78,7 @@ def _parse_author_filters(text: str) -> List[str]:
     return authors
 
 def _parse_date_filters(text: str) -> Tuple[Optional[int], Optional[int]]:
-    """Return (min_year, max_year)."""
+
     text_l = text.lower()
     min_year = max_year = None
 
@@ -98,7 +98,7 @@ def _parse_date_filters(text: str) -> Tuple[Optional[int], Optional[int]]:
     return min_year, max_year
 
 def _extract_exclusions(text: str) -> List[str]:
-    """Return list of phrases following 'not'."""
+
     exclusions = []
     for m in re.finditer(r"not\s+([a-zA-Z0-9\-\s]+)", text, flags=re.I):
         phrase = m.group(1).strip()
@@ -107,26 +107,26 @@ def _extract_exclusions(text: str) -> List[str]:
     return exclusions
 
 def _category_from_phrase(phrase: str) -> Optional[str]:
-    """Fuzzy‑map phrase → arXiv category code."""
+
     if phrase in CATEGORY_MAP:
         return CATEGORY_MAP[phrase]
-    # fuzzy match
+
     candidates = difflib.get_close_matches(phrase, CATEGORY_MAP.keys(), n=1, cutoff=0.8)
     if candidates:
         return CATEGORY_MAP[candidates[0]]
     return None
 
 def _detect_sort(text: str) -> arxiv.SortCriterion:
-    """Detect desired sorting."""
+
     for key, crit in SORT_MAP.items():
         if f"sort by {key}" in text.lower() or f"sorted by {key}" in text.lower():
             return crit
-    # default date
+
     return arxiv.SortCriterion.SubmittedDate
 
 
 def optimize_query(user_text: str):
-    """Transform user text into query + filter dict for arXiv search."""
+
     phrases = _expand_synonyms(_noun_phrases(user_text))
 
     keyword_parts = [f'(ti:"{p}" OR abs:"{p}")' for p in phrases]
@@ -160,12 +160,12 @@ def optimize_query(user_text: str):
     return query, filters
 
 def search_arxiv(query: str, filters: dict):
-    """Run search and return structured results list."""
+
     max_results = filters.get("max_results", 10)
     sort_by = filters.get("sort", arxiv.SortCriterion.SubmittedDate)
 
     search = arxiv.Search(
-        query=query or "all:", 
+        query=query or "all:",
         max_results=max_results,
         sort_by=sort_by,
     )

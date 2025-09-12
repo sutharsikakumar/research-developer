@@ -22,7 +22,7 @@ def _write_text_to_pdf(text: str, output_path: str):
 
 
 def _extract_relevant_sections(pdf_path: str) -> str:
-    """Return only limitation / future‑work / conclusion text."""
+
     loader = PyPDFLoader(pdf_path)
     section_text = ""
     for page in loader.load():
@@ -37,7 +37,7 @@ def _extract_relevant_sections(pdf_path: str) -> str:
 
 
 def _download_pdf(arxiv_url: str) -> str:
-    """Download and cache to papers/<arxiv_id>.pdf."""
+
     arxiv_id = arxiv_url.split("/")[-1]
     pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
     file_path = f"papers/{arxiv_id}.pdf"
@@ -64,15 +64,15 @@ async def _analyze(file_paths: list[str], questions: list[str]) -> dict[str, str
 
 
 async def run(prompt: str, *, max_results: int = 5) -> dict:
-    """
-    Top‑level coroutine used by Celery / FastAPI.
 
-    Args:
-        prompt: free‑text field/topic query
-        max_results: arXiv papers to fetch
 
-    Returns: dict with keys answers / pdf_paths / query
-    """
+
+
+
+
+
+
+
     query_str, filters = optimize_query(prompt)
     papers = search_arxiv(query_str, filters)[:max_results]
 

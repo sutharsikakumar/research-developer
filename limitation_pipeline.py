@@ -11,11 +11,11 @@ import re
 
 load_dotenv()
 
-### in the environment i need to include semantic scholar api, and crossref api. 
-# sutharsika - is scholar api even accessible without requesting?
-### Currently its only parsing the pdf file into text then asking llm to analyze and answer the question
 
-# Create papers directory if not exists
+
+
+
+
 os.makedirs("papers", exist_ok=True)
 
 from fpdf import FPDF
@@ -32,7 +32,7 @@ def write_text_to_pdf(text: str, output_path: str):
 
 
 def extract_relevant_sections(pdf_path):
-    """Extract only the 'Limitations', 'Future Work', or 'Conclusion' sections."""
+
     loader = PyPDFLoader(pdf_path)
     pages = loader.load()
 
@@ -60,8 +60,8 @@ def fetch_papers(query: str, max_results: int = 5):
 
 
 def download_pdf(paper_dict):
-    """Download a paper PDF to local papers/ directory."""
-    # Extract arxiv_id from the URL (e.g., 'http://arxiv.org/abs/1234.5678' -> '1234.5678')
+
+
     arxiv_url = paper_dict["url"]
     arxiv_id = arxiv_url.split("/")[-1]
     pdf_url = f"https://arxiv.org/pdf/{arxiv_id}.pdf"
@@ -79,29 +79,29 @@ def download_pdf(paper_dict):
 
 
 async def analyze_papers(file_paths, questions):
-    """Load PDFs into PaperQA Docs and run queries."""
+
     docs = Docs()
     for path in file_paths:
         await docs.aadd(path)
 
-    # temp_paths = []
-
-    # for path in file_paths:
-    #     relevant_text = extract_relevant_sections(path)
-    #     if relevant_text.strip():
-    #         # Save text to temporary PDF file
-    #         temp_pdf_path = os.path.join("papers", f"filtered_{os.path.basename(path)}.pdf")
-    #         write_text_to_pdf(relevant_text, temp_pdf_path)
-    #         temp_paths.append(temp_pdf_path)
-    #         await docs.aadd(temp_pdf_path)
-    #     else:
-    #         print(f"⚠️ No relevant section found in {path}")
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     settings = Settings()
-    settings.llm = "gpt-4.1" 
+    settings.llm = "gpt-4.1"
 
     results = {}
     for question in questions:
@@ -109,48 +109,48 @@ async def analyze_papers(file_paths, questions):
         answer = await docs.aquery(question, settings=settings)
         results[question] = answer
 
-    return results 
+    return results
 
-"""
-    docs = Docs()
-    await docs.aadd("sample_papers_machinelearning/ART20203995.pdf")
-    settings = Settings()
-    settings.llm = "gpt-3.5-turbo"
-    ask = input("Ask a machine learning question: ")
-    answer_response = await docs.aquery(ask, settings=settings)
-    print(answer_response)
-"""
+
+
+
+
+
+
+
+
+
 
 
 async def main():
-    # 1. Get research field
+
     field = input("Enter the research field you want to explore (for best results specifiy time-frame of papers, as well as author name if preferred): ")
 
-    # 2. Fetch and download papers
+
     print("\n🔎 Searching arXiv...")
     query_str, filters = optimize_query(field)
     papers = search_arxiv(query_str, filters)
     file_paths = [download_pdf(paper) for paper in papers]
 
-    # 3. Define your questions; this are the prompt template that allows us to find gap in the research papers
-    # questions = [
-    #     "What are the recurring limitations mentioned in these papers?",
-    #     "What future work or open research directions are suggested by the authors?"
-    # ]
+
+
+
+
+
     questions = ["What future work or open research directions are suggested by the authors?"]
 
-    # 4. Analyze with PaperQA
+
     print("\n📊 Analyzing papers for research gaps...")
     answers = await analyze_papers(file_paths, questions)
 
-    # 5. Output results
+
     print("\n📌 Research Insights:\n")
     for q, a in answers.items():
         print(f"--- {q} ---\n{a}\n")
 
-    # Save output as JSON for future_work.py
+
     import json
-    # Convert all answers to strings for JSON serialization
+
     answers_str = {q: str(a) for q, a in answers.items()}
     with open("pipeline_output.json", "w") as f:
         json.dump(answers_str, f, indent=2)

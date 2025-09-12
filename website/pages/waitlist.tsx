@@ -31,16 +31,16 @@ export default function WaitListPage() {
     "analyst@research.org"
   ]
 
-  // Load animation trigger
+
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 100)
     return () => clearTimeout(timer)
   }, [])
 
-  // Typewriter effect for main heading
+
   useEffect(() => {
     if (!isLoaded) return
-    
+
     let index = 0
     const timer = setInterval(() => {
       if (index < headingText.length) {
@@ -58,7 +58,7 @@ export default function WaitListPage() {
     let index = 0
     const currentEmail = emailExamples[currentPlaceholder]
     setDisplayedPlaceholder("")
-    
+
     const timer = setInterval(() => {
       if (index < currentEmail.length) {
         setDisplayedPlaceholder(currentEmail.slice(0, index + 1))
@@ -70,7 +70,7 @@ export default function WaitListPage() {
         }, 2000)
       }
     }, 100)
-    
+
     return () => clearInterval(timer)
   }, [currentPlaceholder])
 
@@ -105,7 +105,7 @@ export default function WaitListPage() {
       }
 
       console.log("Email submitted to Supabase:", email)
-      
+
       setTimeout(() => {
         setDone(true)
         setIsSubmitting(false)
@@ -140,17 +140,17 @@ export default function WaitListPage() {
           flex: "1",
           minHeight: "calc(100vh - 160px)"
         }}>
-          <div 
-            style={{ 
-              textAlign: "center", 
+          <div
+            style={{
+              textAlign: "center",
               maxWidth: "512px",
               animation: "successSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards"
             }}
           >
-            <div 
-              style={{ 
-                marginBottom: "32px", 
-                display: "flex", 
+            <div
+              style={{
+                marginBottom: "32px",
+                display: "flex",
                 justifyContent: "center",
                 animation: "successBounce 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s forwards"
               }}
@@ -163,7 +163,7 @@ export default function WaitListPage() {
               marginBottom: "24px",
               animation: "successFadeIn 0.6s ease-out 0.6s both"
             }}>
-              <span style={{ 
+              <span style={{
                 color: "#ff6b35",
                 background: "linear-gradient(135deg, #ff6b35, #ff8c42)",
                 WebkitBackgroundClip: "text",
@@ -194,7 +194,7 @@ export default function WaitListPage() {
       flexDirection: "column"
     }}>
       <Header currentPage={currentPage} onNavigate={setCurrentPage} />
-      
+
       <div style={{
         flex: "1",
         display: "flex",
@@ -215,8 +215,8 @@ export default function WaitListPage() {
           transform: isLoaded ? "translateY(0)" : "translateY(30px)",
           transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1)"
         }}>
-          <div 
-            style={{ 
+          <div
+            style={{
               flexShrink: 0,
               animation: isLoaded ? "slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both" : "none"
             }}
@@ -242,9 +242,9 @@ export default function WaitListPage() {
             </div>
           </div>
 
-          <div 
-            style={{ 
-              flex: 1, 
+          <div
+            style={{
+              flex: 1,
               maxWidth: "600px",
               opacity: isLoaded ? 1 : 0,
               transform: isLoaded ? "translateY(0)" : "translateY(30px)",
@@ -264,7 +264,7 @@ export default function WaitListPage() {
             }}>
               {mainHeading}
               {mainHeading.length < headingText.length && isLoaded && (
-                <span style={{ 
+                <span style={{
                   animation: "pulse 1s infinite",
                   background: "linear-gradient(135deg, #1a1a1a 0%, #4a5568 100%)",
                   WebkitBackgroundClip: "text",
@@ -275,16 +275,16 @@ export default function WaitListPage() {
           </div>
         </div>
 
-        <div 
-          style={{ 
-            width: "100%", 
+        <div
+          style={{
+            width: "100%",
             maxWidth: "500px",
             opacity: isLoaded ? 1 : 0,
             transform: isLoaded ? "translateY(0)" : "translateY(30px)",
             transition: "all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s"
           }}
         >
-          <div 
+          <div
             style={{
               background: "rgba(255, 255, 255, 0.9)",
               backdropFilter: "blur(10px)",
@@ -314,7 +314,7 @@ export default function WaitListPage() {
               background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)",
               animation: "shimmer 3s infinite"
             }} />
-            
+
             <div style={{ display: "flex", alignItems: "center", position: "relative" }}>
               <input
                 type="email"
@@ -340,7 +340,7 @@ export default function WaitListPage() {
                 disabled={!email.trim() || isSubmitting}
                 style={{
                   padding: "16px 20px",
-                  background: email.trim() && !isSubmitting ? 
+                  background: email.trim() && !isSubmitting ?
                     "linear-gradient(135deg, #ff6b35, #ff8c42)" : "#d1d5db",
                   color: "white",
                   fontWeight: "600",
@@ -380,21 +380,21 @@ export default function WaitListPage() {
             </div>
           </div>
 
-          <div 
-            style={{ 
-              textAlign: "center", 
+          <div
+            style={{
+              textAlign: "center",
               marginTop: "32px",
               animation: isLoaded ? "fadeInUp 0.6s ease-out 1s both" : "none"
             }}
           >
-            <p style={{ 
-              color: "#6b7280", 
+            <p style={{
+              color: "#6b7280",
               fontSize: "22px",
               transition: "color 0.3s ease",
               marginBottom: "32px"
             }}>
-              Join the waitlist to get <span style={{ 
-                color: "#ff6b35", 
+              Join the waitlist to get <span style={{
+                color: "#ff6b35",
                 fontWeight: "600",
                 background: "linear-gradient(135deg, #ff6b35, #ff8c42)",
                 WebkitBackgroundClip: "text",
@@ -402,7 +402,7 @@ export default function WaitListPage() {
                 position: "relative"
               }}>early access</span> to the beta.
             </p>
-            
+
             <div style={{
               background: "rgba(255, 255, 255, 0.7)",
               backdropFilter: "blur(8px)",
@@ -426,7 +426,7 @@ export default function WaitListPage() {
               }}>
                 How can we better understand the research landscape? What fields are connected? How can we find revolutionary solutions to these recurring problems? Unmeasured focuses on the uncharted territories of research, identifying gaps and opportunities that are often overlooked.
               </p>
-              
+
               <p style={{
                 fontSize: "18px",
                 lineHeight: "1.6",
@@ -451,7 +451,7 @@ export default function WaitListPage() {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
         }
-        
+
         @keyframes slideInLeft {
           from {
             opacity: 0;
@@ -462,7 +462,7 @@ export default function WaitListPage() {
             transform: translateX(0);
           }
         }
-        
+
         @keyframes slideInRight {
           from {
             opacity: 0;
@@ -473,7 +473,7 @@ export default function WaitListPage() {
             transform: translateX(0);
           }
         }
-        
+
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -484,7 +484,7 @@ export default function WaitListPage() {
             transform: translateY(0);
           }
         }
-        
+
         @keyframes float {
           0%, 100% {
             transform: translateY(0px);
@@ -493,7 +493,7 @@ export default function WaitListPage() {
             transform: translateY(-10px);
           }
         }
-        
+
         @keyframes shimmer {
           0% {
             left: -100%;
@@ -502,12 +502,12 @@ export default function WaitListPage() {
             left: 100%;
           }
         }
-        
+
         @keyframes spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
-        
+
         @keyframes successSlideUp {
           from {
             opacity: 0;
@@ -518,7 +518,7 @@ export default function WaitListPage() {
             transform: translateY(0) scale(1);
           }
         }
-        
+
         @keyframes successBounce {
           from {
             opacity: 0;
@@ -532,7 +532,7 @@ export default function WaitListPage() {
             transform: scale(1) rotate(0deg);
           }
         }
-        
+
         @keyframes successFadeIn {
           from {
             opacity: 0;
